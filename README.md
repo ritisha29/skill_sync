@@ -1,69 +1,120 @@
-# React + TypeScript + Vite
+# SkillSync – Smart Task & Learning Progress Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkillSync is an AI-powered, full-stack learning and task management platform designed to help learners organize tasks, track progress, collaborate in real time, and receive personalized study recommendations.
 
-Currently, two official plugins are available:
+The project was developed during my internship at **Edubot Software and Services** to address common challenges in learning productivity, including generic study guidance, outdated dashboards, and limited real-time collaboration.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Key Features
 
-## Expanding the ESLint configuration
+- **Secure Authentication:** JWT-based authentication and role-based access for users and administrators.
+- **Task Management:** Create, update, and manage tasks with deadlines and tags.
+- **Progress Tracking:** Monitor learning activities, task completion, and progress through an interactive dashboard.
+- **Real-Time Synchronization:** Instantly synchronize task updates across connected sessions using WebSockets and Socket.IO.
+- **AI-Powered Study Tips:** Generate personalized weekly learning recommendations using the Gemini API and user activity data.
+- **Audio Reflection Logging:** Record and review audio notes to support learning reflection.
+- **Analytics Dashboard:** Visualize learning progress using charts and summary statistics.
+- **Admin Panel:** Provide administrative interfaces for monitoring activity and managing content.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technology Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Component | Technologies |
+|---|---|
+| Frontend | React, TypeScript, Tailwind CSS, ShadCN UI |
+| Backend | Flask (Python), Express.js |
+| Database | PostgreSQL, Neon DB |
+| Authentication | JSON Web Tokens (JWT), role-based access |
+| Real-Time Communication | WebSockets, Flask-SocketIO |
+| AI Integration | Google Gemini API |
+| Development Tools | Git, GitHub, REST APIs |
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## System Architecture
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+SkillSync follows a full-stack architecture that connects the user interface, backend services, database, real-time communication layer, and AI integration.
+
+1. **Presentation Layer:** React and TypeScript provide the interactive dashboard, task management interface, and progress visualizations.
+2. **Backend Layer:** Flask and Express.js support application logic and API-based communication.
+3. **Data Layer:** PostgreSQL stores application data, including tasks and progress-related information.
+4. **Real-Time Layer:** WebSocket-based communication enables task updates to be synchronized across connected sessions.
+5. **AI Layer:** The Gemini API generates study tips based on relevant user activity and learning progress.
+
+## Software Engineering Highlights
+
+- Developed a component-based frontend for maintainable UI development.
+- Integrated frontend and backend functionality through API-based communication.
+- Implemented authentication and role-based access control.
+- Designed task-management workflows supporting create, read, update, and delete operations.
+- Integrated real-time event handling to reduce reliance on manual dashboard refreshes.
+- Connected an external generative AI API to deliver contextual learning recommendations.
+
+## Getting Started
+
+### Prerequisites
+
+Install the following tools before running the application:
+
+- Node.js and npm
+- Python 3
+- PostgreSQL or a compatible PostgreSQL database service
+- Git
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ritisha29/skill_sync.git
+cd skill_sync
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install the Node.js dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+Configure the environment variables required by the application. Refer to the project's configuration files and backend implementation to identify the exact variable names.
+
+Create a local `.env` file for your credentials and configuration. **Never commit this file or expose API keys, database passwords, or JWT secrets.**
+
+### Running the Application
+
+Use the scripts defined in `package.json` to start the application. For example, if the project defines a development script:
+
+```bash
+npm run dev
+```
+
+The exact startup procedure may depend on the configured frontend and backend scripts. Check `package.json` and the server configuration before running the application.
+
+## Project Objectives
+
+- Improve task organization and learning productivity.
+- Provide a centralized interface for task and progress management.
+- Enable real-time synchronization across connected user sessions.
+- Deliver personalized AI-generated study recommendations.
+- Integrate frontend, backend, database, and AI services into one application.
+
+## Future Enhancements
+
+- Develop a mobile application using React Native.
+- Integrate calendar and scheduling services.
+- Introduce gamification features such as badges and leaderboards.
+- Add advanced NLP and sentiment-analysis capabilities.
+- Support Google and GitHub OAuth authentication.
+
+## Learning Outcomes
+
+This project provided hands-on experience in full-stack application development, API integration, authentication, database connectivity, real-time communication, and generative AI integration. It also strengthened my understanding of modular design, system integration, and user-focused software engineering.
+
+## Author
+
+**Sai Ritisha Burugupalli**
+
+B.Tech – Computer Science and Engineering (AI & ML)  
+SRM University, AP
+
+- GitHub: [ritisha29](https://github.com/ritisha29)
+
+---
+
+*Built as part of a summer internship project at Edubot Software and Services.*
